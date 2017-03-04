@@ -1,5 +1,5 @@
 
-var Gun = require( "./" );
+var Gun = require( "../" );
 
 var a = Gun( { file: "a.json" } );
 var b = Gun( { file : "b.json" } );
