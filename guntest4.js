@@ -1,5 +1,5 @@
 
-var Gun = require( "./" );
+var Gun = require( "../" );
 
 var gun = Gun( { file: "test.json" } );
 
@@ -19,7 +19,7 @@ root2.put( o[1] );
 gun.get( "others" ).put( o );
 
 
-gun.get( "others" ).map ( (val,field)=>console.log( field,"=",val ) );
-gun.get( "Idents" ).map ( (val,field)=>console.log( field,"=",val ) );
+gun.get( "others" ).map ( (val,field)=>console.log( "others", field,"=",val ) );
+gun.get( "Idents" ).map ( (val,field)=>console.log( "Idents:", field,"=",val ) );
 
 
