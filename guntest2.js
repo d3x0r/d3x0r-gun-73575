@@ -2,8 +2,6 @@
 var Gun = require( "../" );
 
 var a = Gun( { file: "a.json" } );
-
-a.on( "
 var b = Gun( { file : "b.json" } );
 var c = Gun( { file : "c.json" } );
 var ab = a.get( "key" );
@@ -17,5 +15,8 @@ setTimeout( ()=>{
 	var cb = c.get( "key" );
 	cb.map( (val,field)=>{console.log("c key got val:", field, val ) } );
 	bb.map( (val,field)=>{console.log("b2 key got val:", field, val ) } );
-}, 1000 );
+}, 100 );
 
+setTimeout( ()=>{
+	bb.put( { received: "yes I did" } );
+}, 200 );
