@@ -5,6 +5,7 @@ var b = Gun( { file : "b.json" } );
 var c = Gun( { file : "c.json" } );
 var d = null;
 Gun.on('out', function(msg){
+	this.to.next(msg)
 	var onGun = msg.gun.back(-1);
 	if( onGun === a ) {
 		console.log( "a sends to b...." );
@@ -27,7 +28,6 @@ Gun.on('out', function(msg){
 	}
 
 	else   console.log( ["to where?...", JSON.stringify(onGun), "\n Message:", JSON.stringify(msg)].join(" ") );
-		this.to.next(msg)
 })
 
 var ab = a.get( "key" );
@@ -44,6 +44,8 @@ setTimeout( ()=>{
 	
 	d = Gun( { file : "d.json" } );
 	var db = d.get("key");
-	db.map( (val,field)=>{console.log("d key got val:", field, val ) } );
+	db.map( (val,field)=>{console.log("d key got val:", field, val )
+		setTimeout( ()=>{ ab.put( { msg: "updated from a" } ) } );
+	 } );
 	
 }, 1000 );
