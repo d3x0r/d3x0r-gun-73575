@@ -14,5 +14,9 @@ setTimeout( ()=>{
 	console.log( "tick" );
 	var cb = c.get( "key" );
 	cb.map( (val,field)=>{console.log("c key got val:", field, val ) } );
-}, 1000 );
+	bb.map( (val,field)=>{console.log("b2 key got val:", field, val ) } );
+}, 100 );
 
+setTimeout( ()=>{
+	bb.put( { received: "yes I did" } );
+}, 200 );

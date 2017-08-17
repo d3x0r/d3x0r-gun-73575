@@ -10,8 +10,6 @@ var gun = Gun( gunOpts );
 	svc.map( function(val,field){
         	if( typeof( val ) == 'object' ) {
 			console.log( "(side2 services.registry) client map received his own service request", val, field  );
-        	        if( !("ServiceID" in val) )
-	        	        this.put( { ServiceID:1234 } );
                 } else {
                 	console.log( "communication failure." );
                 }

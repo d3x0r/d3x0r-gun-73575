@@ -5,14 +5,7 @@ var http = require('http');
 var port = 7734;
 var ip = '0.0.0.0';
 
-var gun = Gun({
-	file: 'hubdata.json',
-	s3: {
-		key: '', // AWS Access Key
-		secret: '', // AWS Secret Token
-		bucket: '' // The bucket you want to save into
-	}
-});
+var gun = Gun({ file: 'hubdata.json' });
 
 var server = http.createServer(function(req, res){
 	// how does this care about '/gun'?
